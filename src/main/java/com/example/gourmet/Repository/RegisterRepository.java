@@ -13,10 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import com.example.gourmet.Domain.Register;
 
-
-
-
-
 @Repository
 public class RegisterRepository {
     
@@ -31,13 +27,18 @@ public class RegisterRepository {
     /**
      * ユーザー情報の登録
      */
-    public void insert(Register register){
-        String sql="INSERT INTO register(name, email, password) VALUES(:name, :email, :password)";
+    public Register insert(Register register){
+        String sql="INSERT INTO register(name, email, password) VALUES (:name, :email, :password)";
         SqlParameterSource param = new BeanPropertySqlParameterSource(register);
         template.update(sql, param);
+        return register;
         
     }
-    
+    /**
+     * ログインの時に使う
+     * @param email
+     * @return
+     */
     public Register findByMailAddress(String email) {
 		String findAccountSql = "SELECT * FROM register WHERE email=:email";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("email", email);
@@ -46,6 +47,12 @@ public class RegisterRepository {
 			return null;
 		}
 		return registerList.get(0);
-
 	}
+
+    public Register executePasswordReset(Register register) {
+        String sql = "UPDATE register SET (password) VALUES (:password)";
+        SqlParameterSource param = new BeanPropertySqlParameterSource(register);
+        template.update(sql, param);
+        return register;
+    }
 }

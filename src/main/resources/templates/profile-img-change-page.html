@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{css/profile-img-change-page.css}">
+    <title>プロフィール画像変更</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <a th:href="@{/main-page}"><img class="header-logo" src="logo.png" width="80px"></a>
+            <h1 class="header-name">プロフィール画像変更</h1>
+        </div>
+    </header>
+   
+    <div class="content">
+        <h3>現在の画像</h3>
+        <img class="img" th:src="${'data:image/png;base64,' + img}" width="200px"><br>
+        <form th:action="@{/execute-profile-img-change}" th:object="${registerForm}" enctype="multipart/form-data"
+            method="post">
+            画像を選択：<input type="file" th:field="*{profileImg}" accept="image/png"><br>
+            <div class="button-panel">
+                <input class="button" type="submit" value="更新">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

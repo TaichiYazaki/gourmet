@@ -1,0 +1,112 @@
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+/* fontawesome */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* Simple Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* body */
+body {
+  background: #fceede;
+  color: #5e5e5e;
+  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+}
+.header {
+  background: #ffcfcf;
+  margin: 3em auto;
+  padding: 0 1em;
+  max-width: 1000px;
+}
+.header-name {
+  float: right;
+  padding-right: 400px;
+}
+.header-logo {
+  padding: 5px; 
+  padding-top: 10px;
+}
+.article-name {
+  padding-top: 10px;
+}
+
+.content {
+  background: #fafafa;
+  
+  width:1000px;
+  height:350px;
+  text-align:center;
+  margin-top: 0; 
+  margin-left: 220px;
+}
+
+.area {
+  margin-right: 30px;
+  padding-top: 5px;
+}
+
+.store {
+  margin-right: 15px;
+  padding-top: 10px;
+}
+
+.category {
+  margin-right: 130px;
+  padding-top: 5px;
+}
+
+.station {
+  margin-right: 30px;
+  padding-top: 5px;
+}
+.budget {
+  padding-top: 5px;
+}
+.smoking {
+  margin-right: 75px;
+  padding-top: 5px;
+}
+
+.phrase {
+  margin-right: 45px;
+  padding-top: 5px;
+}
+
+.nickname {
+  margin-right: 130px;
+  padding-top: 5px;
+}
+
+h1 {
+  text-align: center;
+  padding: 1em 0;
+}
+
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+.button-panel .button {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 10%;
+}
+
+.button:hover {
+  background: #ee3e52;
+}
+

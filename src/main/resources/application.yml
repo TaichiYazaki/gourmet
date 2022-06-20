@@ -4,3 +4,15 @@ spring:
     url: jdbc:postgresql://localhost:5432/gourmet
     username: YAZAKITAICHI
     password: postgres
+
+  mail:
+   host: smtp.gmail.com
+   port: 587
+   username: tatataichi.taichi@gmail.com
+   password: zttblbwgyggqdpwr
+   properties:
+     mail:
+       smtp:
+         auth: true
+         starttls.enable: true
+  

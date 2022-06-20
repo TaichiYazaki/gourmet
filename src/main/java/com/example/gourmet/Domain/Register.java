@@ -1,5 +1,8 @@
 package com.example.gourmet.Domain;
 
+
+
+
 import lombok.Data;
 
 @Data
@@ -8,4 +11,7 @@ public class Register {
     private String name;
     private String email;
     private String password;
+    //private byte[] profileImg;
+    private String nickname;
+    private String phrase;
 }

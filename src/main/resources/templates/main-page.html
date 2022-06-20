@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/main-page.css}">
+  <title>メインページ</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="header">
+      <a th:href="@{/main-page}"><img class="header-logo" src="logo.png" width="80px"></a>
+      <h1 class="header-name">グルメ共有サイト</h1>
+    </div>
+  </header>
+
+  <article>
+    <div class="left-side">
+      <h2>エリアから探す</h2>
+      <li>池袋〜高田馬場・早稲田</li>
+      <li>新宿・代々木・大久保</li>
+      <li>渋谷・恵比寿・代官山</li>
+      <li>原宿・表参道・青山</li>
+      <li>東京・日本橋</li>
+      <li>銀座・新橋・有楽町</li>
+    </div>
+
+    <div class="content">
+      <h1>投稿一覧</h1>
+      <hr>
+      <div th:each="article : ${articleOfAll}">
+        <img src="food.png" width="200px">
+        <div class="content-explain">
+          <span class="store" >店名：</span>
+            <span th:text="${article.store}">店名</span><br>
+          
+          <span class="category">カテゴリ：</span>
+            <span th:text="${article.category}">カテゴリ</span>
+          <p class="station">最寄駅：
+            <span th:text="${article.station}">最寄駅</span>
+          </p>
+          <p class="budget">予算：
+            <span th:text="${article.budget}">予算</span>
+          </p>
+          <p class="smoking">禁煙・喫煙：
+            <span th:text="${article.smoke}">禁煙・喫煙</span>
+          </p>
+          <p class="explanation">ひとこと：
+            <span th:text="${article.phrase}">ひとこと</span> 
+          </p>
+          <p class="writer">投稿者：</p>
+          <span th:text="${article.registerNickname}">ひとこと</span> 
+          <p>お気に入り：☆</p>
+        </div>
+      </div>
+    </div>
+    <div class="right-side">
+      <h2>メニュー</h2>
+      <a th:href="@{/my-page}">
+        <li>マイページ</li>
+      </a>
+      <a th:href="@{/post-article-page}">
+        <li>投稿</li>
+      </a>
+      <li>お気に入り一覧</li>
+      <a th:href="@{/logout}">
+        <li>ログアウト</li>
+      </a>
+    </div>
+  </article>
+</body>
+
+</html>

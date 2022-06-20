@@ -5,13 +5,12 @@ import lombok.Data;
 
 @Data
 public class RegisterForm {
-    /**名前*/
    
     private String name;
-    /**メールアドレス */
-   
     private String email;
-    /**パスワード */
-   
     private String password;
+    private String nickname;
+    private String phrase;
+    
+
 }

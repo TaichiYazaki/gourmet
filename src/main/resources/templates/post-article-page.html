@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{css/post-article.css}">
+    <title>記事投稿</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <a th:href="@{/main-page}"><img class="header-logo" src="logo.png" width="80px"></a>
+            <h1 class="header-name">記事投稿</h1>
+        </div>
+    </header>
+
+    <div class="content">
+        <h3 class="article-name">記事投稿</h3>
+        <form th:action="@{/execute-post-article}" method="post" th:object="${articleForm}">
+            <p class="store">店名： <input type="text" th:field="*{store}"></p>
+            <p class="area">
+                エリア：
+                <select th:field="*{area}">
+                    <option th:value="0">-----</option>
+                    <option th:value="1">池袋〜高田馬場・早稲田</option>
+                    <option th:value="2">新宿・代々木・大久保</option>
+                    <option th:value="3">渋谷・恵比寿・代官山</option>
+                    <option th:value="4">原宿・表参道・青山</option>
+                    <option th:value="5">東京・日本橋</option>
+                    <option th:value="6">銀座・新橋・有楽町</option>
+                </select>
+            </p>
+            <p class="station">最寄駅：<input type="text" th:field="*{station}"></p>
+            <p class="category">
+                カテゴリ：
+                <select th:field="*{category}">
+                    <option th:value="0">-----</option>
+                    <option th:value="1">家族</option>
+                    <option th:value="2">友人</option>
+                    <option th:value="3">恋人</option>
+                    <option th:value="4">会社</option>
+                </select>
+            </p>
+            <p class="budget">予算： <input type="number" th:field="*{budget}">円</p>
+            <p class="smoking">禁煙・喫煙：
+                禁煙：<input type="radio" name="smoke" value="0" th:field="*{smoke}">
+                喫煙可：<input type="radio" name="smoke" value="1" th:field="*{smoke}">
+            </p>
+            <p class="phrase">ひとこと：<input type="text" th:field="*{phrase}"></p>
+
+            <p class="nickname">投稿者： <span th:text="${nickname}"></span></p>
+
+            <div class="button-panel">
+                <input class="button" type="submit" value="投稿">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
