@@ -21,15 +21,15 @@ public class ArticleRepository {
     @Autowired
     private NamedParameterJdbcTemplate template;
 
-    private static RowMapper<Article> Article_ROW_MAPPER = new BeanPropertyRowMapper<>(Article.class);
+    public static RowMapper<Article> ARTICLE_ROW_MAPPER = new BeanPropertyRowMapper<>(Article.class);
 
     /**
      * 全ての投稿の表示
      * @return
      */
     public List<Article> list() {
-        String sql = "SELECT id, store, area, station, category, budget, smoke, phrase, register_id, register_nickname, created_at  FROM article ORDER BY created_at";
-        List<Article> list = template.query(sql, Article_ROW_MAPPER);
+        String sql = "SELECT id, store, area, station, category, budget, smoke, phrase, register_id, register_nickname, created_at, img_file  FROM article ORDER BY created_at";
+        List<Article> list = template.query(sql, ARTICLE_ROW_MAPPER);
         return list;
     } 
 
@@ -39,8 +39,8 @@ public class ArticleRepository {
      * @return
      */
     public Article insert(Article article) {
-        String sql = "INSERT INTO article (store, area, station, category, budget, smoke, phrase, register_id, register_nickname)" 
-        +"VALUES (:store, :area, :station, :category, :budget, :smoke, :phrase, :registerId, :registerNickname)";
+        String sql = "INSERT INTO article (store, area, station, category, budget, smoke, phrase, register_id, register_nickname, img_file)" 
+        +"VALUES (:store, :area, :station, :category, :budget, :smoke, :phrase, :registerId, :registerNickname, :imgFile)";
         SqlParameterSource param = new BeanPropertySqlParameterSource(article);
         template.update(sql, param);
         return article;

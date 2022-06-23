@@ -21,57 +21,86 @@
   <article>
     <div class="left-side">
       <h2>エリアから探す</h2>
-      <li>池袋〜高田馬場・早稲田</li>
-      <li>新宿・代々木・大久保</li>
-      <li>渋谷・恵比寿・代官山</li>
-      <li>原宿・表参道・青山</li>
-      <li>東京・日本橋</li>
-      <li>銀座・新橋・有楽町</li>
+      <div class="area-button-panel">
+        <form th:action="@{/ikebukuro-area}" method="post">
+          <input type="submit" class="area-button" value="池袋〜高田馬場・早稲田" name="ikebukuro-area">
+        </form>
+        <form th:action="@{/shinjuku-area}" method="post">
+          <input type="submit" class="area-button" value="新宿・代々木・大久保" name="shinjuku-area">
+        </form>
+        <form th:action="@{/shibuya-area}" method="post">
+          <input type="submit" class="area-button" value="渋谷・恵比寿・代官山" name="shibuya-area">
+        </form>
+        <form th:action="@{/harajuku-area}" method="post">
+          <input type="submit" class="area-button" value="原宿・表参道・青山" name="harajuku-area">
+        </form>
+        <form th:action="@{/tokyo-area}" method="post">
+          <input type="submit" class="area-button" value="東京・日本橋" name="tokyo-area">
+        </form>
+        <form th:action="@{/ginza-area}" method="post">
+          <input type="submit" class="area-button" value="銀座・新橋・有楽町" name="ginza-area">
+        </form>
+      </div>
     </div>
 
     <div class="content">
       <h1>投稿一覧</h1>
       <hr>
       <div th:each="article : ${articleOfAll}">
-        <img src="food.png" width="200px">
+        <img src="food.png" th:src="@{/image/}+${article.imgFile}" width="200px">
         <div class="content-explain">
-          <span class="store" >店名：</span>
-            <span th:text="${article.store}">店名</span><br>
-          
+          <span class="store">店名：</span>
+          <span th:text="${article.store}">店名</span>
+          <br>
           <span class="category">カテゴリ：</span>
-            <span th:text="${article.category}">カテゴリ</span>
-          <p class="station">最寄駅：
-            <span th:text="${article.station}">最寄駅</span>
-          </p>
-          <p class="budget">予算：
-            <span th:text="${article.budget}">予算</span>
-          </p>
-          <p class="smoking">禁煙・喫煙：
-            <span th:text="${article.smoke}">禁煙・喫煙</span>
-          </p>
-          <p class="explanation">ひとこと：
-            <span th:text="${article.phrase}">ひとこと</span> 
-          </p>
-          <p class="writer">投稿者：</p>
-          <span th:text="${article.registerNickname}">ひとこと</span> 
-          <p>お気に入り：☆</p>
+          <span class="article-category" th:text="${article.category}">カテゴリ</span>
+          <br>
+          <span class="station">最寄駅： </span>
+          <span class="article-station" th:text="${article.station}">最寄駅</span>
+          <br>
+          <span class="budget">予算：</span>
+          <span class="article-budget" th:text="${article.budget}+円">予算</span>
+          <br>
+          <span class="smoke">禁煙・喫煙：</span>
+          <span class="article-smoke" th:text="${article.smoke}">禁煙・喫煙</span>
+          <br>
+          <span class="phrase">ひとこと：</span>
+          <span class="article-phrase" th:text="${article.phrase}">ひとこと</span>
+          <br>
+          <span class="nickname">投稿者：</span>
+          <span class="article-nickname" th:text="${article.registerNickname}">投稿者</span>
+          <br>
+          <form th:action="@{/execute-favorite?id=}+${article.id}" method="post">
+            <div class="button-panel">
+              <input type="submit" class="button" id="favorite-button" value="お気に入り"></input>
+            </div>
+          </form>
+
         </div>
       </div>
     </div>
     <div class="right-side">
       <h2>メニュー</h2>
-      <a th:href="@{/my-page}">
-        <li>マイページ</li>
-      </a>
-      <a th:href="@{/post-article-page}">
-        <li>投稿</li>
-      </a>
-      <li>お気に入り一覧</li>
-      <a th:href="@{/logout}">
-        <li>ログアウト</li>
-      </a>
+      <div class="area-button-panel">
+        <form th:action="@{/my-page}" method="post">
+          <input type="submit" class="area-button" value="マイページ" name="mypage">
+        </form>
+        <form th:action="@{/post-article-page}" method="post">
+          <input type="submit" class="area-button" value="投稿" name="post-article">
+        </form>
+        <form th:action="@{/my-post}" method="post">
+          <input type="submit" class="area-button" value="自分の投稿一覧" name="logout">
+        </form>
+        <form th:action="@{/favorite-page}" method="post">
+          <input type="submit" class="area-button" value="お気に入り一覧" name="favorite">
+        </form>
+        <form th:action="@{/logout}" method="post">
+          <input type="submit" class="area-button" value="ログアウト" name="logout">
+        </form>
+      </div>
     </div>
   </article>
+  <script th:src="@{/js/favorite.js}"></script>
 </body>
 
 </html>

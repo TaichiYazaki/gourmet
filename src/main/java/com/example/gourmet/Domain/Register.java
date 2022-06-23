@@ -11,7 +11,7 @@ public class Register {
     private String name;
     private String email;
     private String password;
-    //private byte[] profileImg;
     private String nickname;
     private String phrase;
+    private String imgFile;
 }

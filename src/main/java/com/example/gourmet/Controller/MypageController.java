@@ -1,5 +1,10 @@
 package com.example.gourmet.Controller;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -11,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.gourmet.Domain.LoginUser;
+
 import com.example.gourmet.Domain.Register;
 import com.example.gourmet.Form.RegisterForm;
 import com.example.gourmet.Service.MypageService;
@@ -30,9 +36,9 @@ public class MypageController {
     @RequestMapping("/my-page")
     public String myPage(@AuthenticationPrincipal LoginUser user, Model model) {
         Register register = mypageService.loadId(user.getRegister().getId());
-        System.out.println(register);
         model.addAttribute("nickname", register.getNickname());
         model.addAttribute("phrase", register.getPhrase());
+        model.addAttribute("image", register.getImgFile());
         return "my-page";
     }
 
@@ -45,11 +51,27 @@ public class MypageController {
     }
 
     @RequestMapping("/execute-profile-img-change")
-    public String executeProfileImgChange(@AuthenticationPrincipal LoginUser user,@RequestParam("image") MultipartFile multipartFile, Model model) {
-    
+    public String executeProfileImgChange(@AuthenticationPrincipal LoginUser user,
+            @RequestParam("file") MultipartFile file, Model model) {
+        String fileName = file.getOriginalFilename();
+        Register register = mypageService.loadId(user.getRegister().getId());
+        Path filePath = Paths
+                .get("/Users/YAZAKITAICHI/env/vs-code/gourmet/src/main/resources/static/image/" + fileName);
+
+        register.setImgFile(fileName);
+        mypageService.imgFileUpdate(register);
+        model.addAttribute("img", register.getImgFile());
+        try {
+            byte[] bytes = file.getBytes();
+            OutputStream stream = Files.newOutputStream(filePath);
+            stream.write(bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return "/my-page";
-       }
+
     }
-    //////////////////////////////////////////////////////////
-    /////////////// プロフィール画像に関する設定終了////////////////
-    //////////////////////////////////////////////////////////
+}
+//////////////////////////////////////////////////////////
+/////////////// プロフィール画像に関する設定終了////////////////
+//////////////////////////////////////////////////////////

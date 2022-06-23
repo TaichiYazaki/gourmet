@@ -20,15 +20,14 @@
    
     <div class="content">
         <h3>現在の画像</h3>
-        <img class="img" th:src="${'data:image/png;base64,' + img}" width="200px"><br>
-        <form th:action="@{/execute-profile-img-change}" th:object="${registerForm}" enctype="multipart/form-data"
-            method="post">
-            画像を選択：<input type="file" th:field="*{profileImg}" accept="image/png"><br>
+        <img class="img" th:src=@{/Users/YAZAKITAICHI/Pictures/gourmet}+${image} width="200px"><br>
+        <form th:action="@{/execute-profile-img-change}" enctype="multipart/form-data" method="post">
+            画像を選択：<input type="file" name="file"><br>
             <div class="button-panel">
                 <input class="button" type="submit" value="更新">
             </div>
         </form>
-    </div>
+    </div>Ï
 </body>
 
 </html>

@@ -17,7 +17,7 @@
     </header>
 
     <div class="content">
-       <img class="img" th:src="${'data:image/png;base64,' + img}" width="200px"><br>
+       <img class="img" th:src="@{/image/}+${image}" width="200px"><br>
        <a class="img-edit" th:href="@{/profile-img-change-page}" >画像を変更</a><br>
       <p class="nickname"> 投稿ネーム：<span th:text="${nickname}"></span></p> 
       <p class="phrase">ひとこと： <span th:text="${phrase}"></span></p> 

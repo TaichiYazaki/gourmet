@@ -11,14 +11,14 @@ public class Article {
     
     private Integer id;
     private String store;
-    private Integer area;
+    private String area;
     private String station;
-    private Integer category;
+    private String category;
     private Integer budget;
-    private Integer smoke;
+    private String smoke;
     private String phrase;
     private Integer registerId;
     private String registerNickname;
     private Timestamp createdAt;
-
+    private String imgFile;
 }

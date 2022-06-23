@@ -21,7 +21,7 @@ public class MypageRepository {
 
     public Register loadId(Integer id) {
         String sql = "SELECT * FROM register WHERE id=:id";
-        SqlParameterSource param = new MapSqlParameterSource().addValue("id",id);
+        SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
         Register register = template.queryForObject(sql, param, REGISTER_ROW_MAPPER);
         return register;
     }
@@ -38,4 +38,22 @@ public class MypageRepository {
         template.update(sql, param);
         return register;
     };
+
+    public Register image(Register register, byte[] bytes) {
+        //Register register = loadId(id);
+        System.out.println(register);
+        String sql = "UPDATE profile_img SET image=:image ";
+        SqlParameterSource param = new BeanPropertySqlParameterSource(bytes);
+        template.update(sql, param);
+        return register;
+    }
+
+    public Register imgFileUpdate(Register register) {
+        String sql = "UPDATE register SET img_file=:imgFile WHERE id=:id ";
+        SqlParameterSource param = new BeanPropertySqlParameterSource(register);
+        template.update(sql, param);
+      return register;
+    };
+
+
 }

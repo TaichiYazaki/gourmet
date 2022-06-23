@@ -30,9 +30,110 @@ body {
   padding: 5px; 
   padding-top: 10px;
 }
-/**
- **右側のバーに関する設定開始
- **/
+
+
+ /**-----------------**/
+ /**投稿に関する設定開始**/
+ /**-----------------**/
+.content {
+ 
+  margin: 3em auto;
+  width:1000px;
+  height:500px;
+  text-align:center;
+  margin-top: 0; 
+}
+
+.content-explain {
+  text-align:center;
+  padding: 10px;
+  background: #fafafa;
+}
+
+.store {
+  letter-spacing: 21px;
+  padding-left: 12px;
+}
+
+.category {
+  letter-spacing: 3.5px;
+}
+.article-category {
+  padding-left: 20px;
+}
+.station {
+  letter-spacing: 9px;
+  padding-left: 3px;
+}
+.article-station {
+  padding-left: 7px;
+}
+.budget {
+  letter-spacing: 21px;
+  padding-left: 17px;
+}
+.article-budget {
+  padding-left: 3px;
+}
+.article-smoke {
+  padding-left: 25px;
+}
+.phrase {
+  letter-spacing: 5px;
+}
+.article-phrase {
+  padding-left: 22px;
+}
+.nickname {
+  letter-spacing: 9px;
+  padding-left: 8px;
+}
+.article-nickname {
+  padding-left: 17px;
+}
+
+.favorite {
+  margin-right: 30px;
+}
+
+article {
+  display:flex;
+}
+/**-----------------**/
+ /**投稿に関する設定終了**/
+ /**-----------------**/
+h1 {
+  text-align: center;
+  padding: 1em 0;
+}
+
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+.button-panel .button {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 20%;
+}
+
+.button:hover {
+  background: #ee3e52;
+}
+
+/**-----------------------**/
+/**メニューバーに関する設定開始**/
+/**-----------------------**/
 .right-side {
   background-color:#ffcfcf;
   width:315px;
@@ -42,13 +143,13 @@ body {
   margin-left:50px;
   padding-top: 10px;
 } 
-/**
- **右側のバーに関する設定終了
- **/
+/**-----------------------**/
+/**メニューバーに関する設定終了**/
+/**-----------------------**/
 
-/**
- **左側のバーに関する設定開始
- **/
+/**----------------------**/
+/**エリアバーに関する設定開始**/
+/**----------------------**/
 .left-side {
   background-color:#ffcfcf;
   width:315px;
@@ -63,55 +164,36 @@ li{
   margin-left:10px;
   padding-top: 5px;
 }
-/**
- **左側のバーに関する設定終了
- **/
+/**----------------------**/
+/**エリアバーに関する設定終了**/
+/**----------------------**/
 
- /**
-  **投稿に関する設定開始
-  **/
-.content {
-  background: #fafafa;
-  margin: 3em auto;
-  width:1000px;
-  height:430px;
-  text-align:center;
-  margin-top: 0; 
+/**------------------------------**/
+/**エリアに関するボタンパネルの設定開始**/
+/**------------------------------**/
+.area-button-panel {
+  margin: 2em 0 0;
+  width: 100%;
 }
-
-.content-explain {
-  text-align:left;
-  padding: 10px;
-}
-
-.store {
-  letter-spacing: 21px;
-}
-
-.category {
-  letter-spacing: 3.5px;
-}
-.station {
-  letter-spacing: 9px;
-}
-.budget {
-  letter-spacing: 21px;
-}
-.explanation {
-  letter-spacing: 3.5px;
-}
-.writer {
-  letter-spacing: 9px;
-}
-article {
-  display:flex;
-}
-/**
- **投稿に関する設定終了
- **/
-
-h1 {
+.area-button-panel .area-button {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
   text-align: center;
-  padding: 1em 0;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 80%;
+  margin-bottom: 10px;
 }
+/**------------------------------**/
+/**エリアに関するボタンパネルの設定終了**/
+/**------------------------------**/
+
+
+
 

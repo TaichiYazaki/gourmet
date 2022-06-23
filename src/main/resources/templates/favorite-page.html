@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{css/main-page.css}">
+    <title>お気に入り一覧</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <a th:href="@{/main-page}"><img class="header-logo" src="logo.png" width="80px"></a>
+            <h1 class="header-name">お気に入り一覧</h1>
+        </div>
+    </header>
+
+    <div class="content">
+        <div th:each="favorite : ${favoriteOfAll}">
+            <img src="food.png" th:src="@{/image/}+${favorite.article.imgFile}" width="200px">
+            <div class="content-explain">
+                <span class="store">店名：</span>
+                <span th:text="${favorite.article.store}">店名</span>
+                <br>
+                <span class="category">カテゴリ：</span>
+                <span class="article-category" th:text="${favorite.article.category}">カテゴリ</span>
+                <br>
+                <span class="station">最寄駅： </span>
+                <span class="article-station" th:text="${favorite.article.station}">最寄駅</span>
+                <br>
+                <span class="budget">予算：</span>
+                <span class="article-budget" th:text="${favorite.article.budget}+円">予算</span>
+                <br>
+                <span class="smoke">禁煙・喫煙：</span>
+                <span class="article-smoke" th:text="${favorite.article.smoke}">禁煙・喫煙</span>
+                <br>
+                <span class="phrase">ひとこと：</span>
+                <span class="article-phrase" th:text="${favorite.article.phrase}">ひとこと</span>
+                <br>
+                <span class="nickname">投稿者：</span>
+                <span class="article-nickname" th:text="${favorite.article.registerNickname}">投稿者</span>
+                <form th:action="@{/delete-favorite?id=}+${favorite.id}" method="post">
+                    <div class="button-panel">
+                        <input type="submit" class="button" value="お気に入り解除"></input>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+</body>
+
+</html>

@@ -20,35 +20,36 @@
 
     <div class="content">
         <h3 class="article-name">記事投稿</h3>
-        <form th:action="@{/execute-post-article}" method="post" th:object="${articleForm}">
+        <form th:action="@{/execute-post-article}" enctype="multipart/form-data" th:object="${articleForm}" method="post" >
+            画像を選択：<input type="file" name="file"><br>
             <p class="store">店名： <input type="text" th:field="*{store}"></p>
             <p class="area">
                 エリア：
                 <select th:field="*{area}">
-                    <option th:value="0">-----</option>
-                    <option th:value="1">池袋〜高田馬場・早稲田</option>
-                    <option th:value="2">新宿・代々木・大久保</option>
-                    <option th:value="3">渋谷・恵比寿・代官山</option>
-                    <option th:value="4">原宿・表参道・青山</option>
-                    <option th:value="5">東京・日本橋</option>
-                    <option th:value="6">銀座・新橋・有楽町</option>
+                    <option th:value="エリア">-----</option>
+                    <option th:value="池袋〜高田馬場・早稲田">池袋〜高田馬場・早稲田</option>
+                    <option th:value="新宿・代々木・大久保">新宿・代々木・大久保</option>
+                    <option th:value="渋谷・恵比寿・代官山">渋谷・恵比寿・代官山</option>
+                    <option th:value="原宿・表参道・青山">原宿・表参道・青山</option>
+                    <option th:value="東京・日本橋">東京・日本橋</option>
+                    <option th:value="銀座・新橋・有楽町">銀座・新橋・有楽町</option>
                 </select>
             </p>
             <p class="station">最寄駅：<input type="text" th:field="*{station}"></p>
             <p class="category">
                 カテゴリ：
                 <select th:field="*{category}">
-                    <option th:value="0">-----</option>
-                    <option th:value="1">家族</option>
-                    <option th:value="2">友人</option>
-                    <option th:value="3">恋人</option>
-                    <option th:value="4">会社</option>
+                    <option th:value="カテゴリ">-----</option>
+                    <option th:value="家族">家族</option>
+                    <option th:value="友人">友人</option>
+                    <option th:value="恋人">恋人</option>
+                    <option th:value="会社">会社</option>
                 </select>
             </p>
             <p class="budget">予算： <input type="number" th:field="*{budget}">円</p>
             <p class="smoking">禁煙・喫煙：
-                禁煙：<input type="radio" name="smoke" value="0" th:field="*{smoke}">
-                喫煙可：<input type="radio" name="smoke" value="1" th:field="*{smoke}">
+                禁煙：<input type="radio" name="smoke" value="禁煙" th:field="*{smoke}">
+                喫煙可：<input type="radio" name="smoke" value="喫煙" th:field="*{smoke}">
             </p>
             <p class="phrase">ひとこと：<input type="text" th:field="*{phrase}"></p>
 
