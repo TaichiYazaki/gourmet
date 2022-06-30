@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{css/main-page.css}">
+    <link rel="stylesheet" th:href="@{css/my-post.css}">
     <title>お気に入り一覧</title>
 </head>
 
@@ -19,32 +19,39 @@
     </header>
 
     <div class="content">
-        <div th:each="favorite : ${favoriteOfAll}">
+        <div class="content-all" th:each="favorite : ${favoriteOfAll}">
             <img src="food.png" th:src="@{/image/}+${favorite.article.imgFile}" width="200px">
             <div class="content-explain">
-                <span class="store">店名：</span>
-                <span th:text="${favorite.article.store}">店名</span>
+                <span class="store">店名：
+                    <span class="article-store" th:text="${favorite.article.store}">店名</span>
+                </span>
                 <br>
-                <span class="category">カテゴリ：</span>
-                <span class="article-category" th:text="${favorite.article.category}">カテゴリ</span>
+                <span class="category">カテゴリ：
+                    <span class="article-category" th:text="${favorite.article.category}">カテゴリ</span>
+                </span>
                 <br>
-                <span class="station">最寄駅： </span>
-                <span class="article-station" th:text="${favorite.article.station}">最寄駅</span>
+                <span class="station">最寄駅：
+                    <span class="article-station" th:text="${favorite.article.station}">最寄駅</span>
+                </span>
                 <br>
-                <span class="budget">予算：</span>
-                <span class="article-budget" th:text="${favorite.article.budget}+円">予算</span>
+                <span class="budget">予算：
+                    <span class="article-budget" th:text="${favorite.article.budget}+円">予算</span>
+                </span>
                 <br>
-                <span class="smoke">禁煙・喫煙：</span>
-                <span class="article-smoke" th:text="${favorite.article.smoke}">禁煙・喫煙</span>
+                <span class="smoke">禁煙・喫煙：
+                    <span class="article-smoke" th:text="${favorite.article.smoke}">禁煙・喫煙</span>
+                </span>
                 <br>
-                <span class="phrase">ひとこと：</span>
-                <span class="article-phrase" th:text="${favorite.article.phrase}">ひとこと</span>
+                <span class="phrase">ひとこと：
+                    <span class="article-phrase" th:text="${favorite.article.phrase}">ひとこと</span>
+                </span>
                 <br>
-                <span class="nickname">投稿者：</span>
+                <span class="nickname">投稿者：
+                </span>
                 <span class="article-nickname" th:text="${favorite.article.registerNickname}">投稿者</span>
                 <form th:action="@{/delete-favorite?id=}+${favorite.id}" method="post">
                     <div class="button-panel">
-                        <input type="submit" class="button" value="お気に入り解除"></input>
+                        <input type="submit" class="button" value="解除"></input>
                     </div>
                 </form>
 

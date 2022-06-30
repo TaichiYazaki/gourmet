@@ -1,11 +1,10 @@
 package com.example.gourmet.Service;
 
-import java.io.IOException;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.example.gourmet.Domain.Register;
 import com.example.gourmet.Repository.MypageRepository;

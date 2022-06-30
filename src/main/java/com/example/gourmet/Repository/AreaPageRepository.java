@@ -26,7 +26,8 @@ public class AreaPageRepository {
      * @return
      */
     public List<Article> listOfIkebukuro(String area) {
-        String sql = "SELECT id, store, area, station, category, budget, smoke, phrase, register_id, register_nickname, created_at FROM article WHERE area = :area";
+        String sql = "SELECT id, store, area, station, category, budget, smoke, phrase, register_id, register_nickname, created_at, img_file"
+        + " FROM article WHERE area = :area ORDER BY created_at DESC ";
         SqlParameterSource param = new MapSqlParameterSource().addValue("area", area);
         List<Article> list = template.query(sql, param, ARTICLE_ROW_MAPPER);
         return list;

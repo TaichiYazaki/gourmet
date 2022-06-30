@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.gourmet.Domain.Article;
 import com.example.gourmet.Domain.LoginUser;
-import com.example.gourmet.Repository.MyPostService1;
+import com.example.gourmet.Service.MyPostService1;
 
 
 @Controller
@@ -35,6 +35,6 @@ public class MyPostController {
     @RequestMapping("/delete-my-post")
     public String deleteMyPost(Integer id) {
         myPostService1.delete(id);
-        return "my-post";
+        return "redirect:/my-post";
     }
 }

@@ -1,4 +1,4 @@
-package com.example.gourmet.Repository;
+package com.example.gourmet.Service;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.gourmet.Domain.Article;
+import com.example.gourmet.Repository.MyPostRepository;
 
 @Service
 @Transactional

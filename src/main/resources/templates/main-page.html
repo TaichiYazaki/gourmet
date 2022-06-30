@@ -45,38 +45,50 @@
 
     <div class="content">
       <h1>投稿一覧</h1>
-      <hr>
-      <div th:each="article : ${articleOfAll}">
-        <img src="food.png" th:src="@{/image/}+${article.imgFile}" width="200px">
+      <div class="content-all" th:each="article : ${articleOfAll}">
+        <img class="image" src="food.png" th:src="@{/image/}+${article.imgFile}" width="200px">
         <div class="content-explain">
-          <span class="store">店名：</span>
-          <span th:text="${article.store}">店名</span>
+          <span class="store">店名：
+            <span class="article-store" th:text="${article.store}">店名</span>
+          </span>
           <br>
-          <span class="category">カテゴリ：</span>
-          <span class="article-category" th:text="${article.category}">カテゴリ</span>
+          <span class="category">カテゴリ：
+            <span class="article-category" th:text="${article.category}">カテゴリ</span>
+          </span>
           <br>
-          <span class="station">最寄駅： </span>
-          <span class="article-station" th:text="${article.station}">最寄駅</span>
+          <span class="station">最寄駅：
+            <span class="article-station" th:text="${article.station}">最寄駅</span>
+          </span>
           <br>
-          <span class="budget">予算：</span>
-          <span class="article-budget" th:text="${article.budget}+円">予算</span>
+          <span class="budget">予算：
+            <span class="article-budget" th:text="${article.budget}+円">予算</span>
+          </span>
           <br>
-          <span class="smoke">禁煙・喫煙：</span>
-          <span class="article-smoke" th:text="${article.smoke}">禁煙・喫煙</span>
+          <span class="smoke">禁煙・喫煙：
+            <span class="article-smoke" th:text="${article.smoke}">禁煙・喫煙</span>
+          </span>
           <br>
-          <span class="phrase">ひとこと：</span>
-          <span class="article-phrase" th:text="${article.phrase}">ひとこと</span>
+          <span class="phrase">ひとこと：
+            <span class="article-phrase" th:text="${article.phrase}">ひとこと</span>
+          </span>
           <br>
-          <span class="nickname">投稿者：</span>
-          <span class="article-nickname" th:text="${article.registerNickname}">投稿者</span>
-          <br>
-          <form th:action="@{/execute-favorite?id=}+${article.id}" method="post">
-            <div class="button-panel">
-              <input type="submit" class="button" id="favorite-button" value="お気に入り"></input>
+          <span class="nickname">投稿者：
+            <span class="article-nickname" th:text="${article.registerNickname}">投稿者</span>
+          </span>
+          <br> 
+            <form th:action="@{/execute-favorite}"  class="favorite-button" method="post" >
+              <div class="button-panel">
+                <input type="hidden" class="id" th:value="${article.id}" name="id" >
+                <input type="submit" class="button" value="お気に入り" th:name="${article.id}" >
+              </div>
+            </form>
+            <form th:action="@{/review}" method="post">
+              <div class="review-panel">
+              <input type="hidden" class="id" th:value="${article.id}" name="articleId" >
+              <input type="submit" class="button" value="レビュー">
             </div>
-          </form>
-
-        </div>
+            </form>
+        </div> 
       </div>
     </div>
     <div class="right-side">
@@ -100,6 +112,7 @@
       </div>
     </div>
   </article>
+  <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
   <script th:src="@{/js/favorite.js}"></script>
 </body>
 

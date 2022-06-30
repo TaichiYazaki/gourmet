@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
@@ -28,10 +29,23 @@ public class ArticleRepository {
      * @return
      */
     public List<Article> list() {
-        String sql = "SELECT id, store, area, station, category, budget, smoke, phrase, register_id, register_nickname, created_at, img_file  FROM article ORDER BY created_at";
+        String sql = "SELECT id, store, area, station, category, budget, smoke, phrase, register_id, register_nickname, created_at, img_file  FROM article ORDER BY created_at DESC";
         List<Article> list = template.query(sql, ARTICLE_ROW_MAPPER);
         return list;
     } 
+
+    /**
+     * 記事を1件取得します
+     * レビューで利用
+     * @param id
+     * @return
+     */
+   public Article oneOfList(Integer id){
+    String sql = "SELECT id, store, area, station, category, budget, smoke, phrase, register_id, register_nickname, created_at, img_file FROM article WHERE id =:id";
+    SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
+    Article article = template.queryForObject(sql, param, ARTICLE_ROW_MAPPER);
+    return article;
+   }
 
     /**
      * 記事の投稿

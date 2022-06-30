@@ -20,7 +20,7 @@
    
     <div class="content">
         <h3>現在の画像</h3>
-        <img class="img" th:src=@{/Users/YAZAKITAICHI/Pictures/gourmet}+${image} width="200px"><br>
+        <img class="img" th:src=@{/image/}+${image} width="200px"><br>
         <form th:action="@{/execute-profile-img-change}" enctype="multipart/form-data" method="post">
             画像を選択：<input type="file" name="file"><br>
             <div class="button-panel">

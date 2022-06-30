@@ -26,7 +26,8 @@ public class MyPostRepository {
      * @return
      */
     public List<Article> load(Integer registerId) {
-        String sql = "SELECT id, store, area, station, category, budget, smoke, phrase, register_id, register_nickname, img_file FROM article WHERE register_id=:register_id";
+        String sql = "SELECT id, store, area, station, category, budget, smoke, phrase, register_id, register_nickname, img_file FROM article WHERE register_id=:register_id"
+                        +" ORDER BY created_at DESC";
         MapSqlParameterSource param = new MapSqlParameterSource().addValue("register_id", registerId);
         List<Article> list = template.query(sql, param, ARTICLE_ROW_MAPPER);
         return list;

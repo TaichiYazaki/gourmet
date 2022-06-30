@@ -40,8 +40,6 @@ public class MypageRepository {
     };
 
     public Register image(Register register, byte[] bytes) {
-        //Register register = loadId(id);
-        System.out.println(register);
         String sql = "UPDATE profile_img SET image=:image ";
         SqlParameterSource param = new BeanPropertySqlParameterSource(bytes);
         template.update(sql, param);

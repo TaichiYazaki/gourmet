@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{css/favorite-page.css}">
-    <title>池袋〜高田馬場・早稲田エリア</title>
+    <link rel="stylesheet" th:href="@{css/review.css}">
+    <title>レビュー</title>
 </head>
 
 <body>
@@ -14,12 +14,12 @@
     <header>
         <div class="header">
             <a th:href="@{/main-page}"><img class="header-logo" src="logo.png" width="80px"></a>
-            <h1 class="header-name">池袋〜高田馬場・早稲田エリア</h1>
+            <h1 class="header-name">投稿のレビュー</h1>
         </div>
     </header>
 
     <div class="content">
-        <div class="content-all" th:each="article : ${articleOfAll}">
+        <div class="content-all">
             <img src="food.png" th:src="@{/image/}+${article.imgFile}" width="200px">
             <div class="content-explain">
                 <span class="store">店名：
@@ -47,18 +47,26 @@
                 </span>
                 <br>
                 <span class="nickname">投稿者：
-                    <span class="article-nickname" th:text="${article.registerNickname}">投稿者</span>
+                    <span class="article-nickname" th:text="${article.registerNickname}">投稿者
+                    </span>
                 </span>
-                <form th:action="@{/execute-favorite?id=}+${article.id}" method="post">
-                    <div class="button-panel">
-                        <input type="submit" class="button" value="お気に入り"></input>
-                    </div>
-                </form>
-
             </div>
         </div>
     </div>
-
+    <div class="review">
+        <p>レビューを記入してください</p>
+        <form th:action="@{/execute-review}" method="post" th:object="${reviewForm}">
+            <textarea rows="10" cols="40" th:field="*{comment}"></textarea><br>
+            <div class="button-panel">
+                <input type="hidden" th:value="${article.id}" name="articleId">
+                <input type="submit" class="button" value="送信">
+            </div>
+        </form>
+    </div>
+    <div class="review-comment" th:each="review: ${reviewOfAll}">
+        投稿者：<span th:text="${review.register.nickname}">たいち</span><br>
+        レビュー：<span th:text="${review.comment}">good</span>
+        <hr>
     </div>
 </body>
 

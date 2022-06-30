@@ -28,7 +28,6 @@ public class MainPageController {
     @RequestMapping("/main-page")
     public String mainPage(@AuthenticationPrincipal LoginUser user, Model model) {
         List<Article> articleOfAll = articleService.list();
-        
         model.addAttribute("articleOfAll", articleOfAll);
         return "main-page";
     }

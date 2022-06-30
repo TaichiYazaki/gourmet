@@ -24,6 +24,15 @@ public class ArticleService {
         return articleRepository.list();
     }
 
+    /**
+     * 記事を1件取得します
+     * レビューで利用
+     * @param id
+     * @return
+     */
+    public Article oneOfList(Integer id) {
+        return articleRepository.oneOfList(id);
+    }
 
     /**
      * 記事の投稿

@@ -1,0 +1,187 @@
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+/* fontawesome */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* Simple Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body */
+body {
+  background: #fceede;
+  color: #5e5e5e;
+  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+}
+
+.header {
+  background: #ffcfcf;
+  margin: 3em auto;
+  padding: 0 1em;
+  max-width: 1050px;
+}
+
+.header-name {
+  float: right;
+  padding-right: 400px;
+}
+
+.header-logo {
+  padding: 5px;
+  padding-top: 10px;
+}
+
+
+/**-----------------**/
+/**投稿に関する設定開始**/
+/**-----------------**/
+.content {
+  /* background-color:#ffcfcf;*/
+  margin: 3em auto;
+  width: 500px;
+  height: 350px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.content-all {
+  background: #fafafa;
+  padding-top: 10px;
+  margin-top: 30px;
+}
+
+.content-explain {
+  text-align: left;
+  padding: 10px;
+
+}
+
+.store {
+  letter-spacing: 21px;
+
+}
+
+.article-store {
+  letter-spacing: 0px;
+  padding: 0px;
+}
+
+.category {
+  letter-spacing: 3.5px;
+}
+
+.article-category {
+  letter-spacing: 0px;
+  padding: 38px;
+}
+
+.station {
+  letter-spacing: 9px;
+  padding-left: 2px;
+}
+
+.article-station {
+  letter-spacing: 0px;
+  padding: 26px;
+}
+
+.budget {
+  letter-spacing: 21px;
+  padding-left: 2px;
+}
+
+.article-budget {
+  letter-spacing: 0px;
+  padding: 0px;
+}
+
+.smoke {
+  letter-spacing: 0.5px;
+}
+
+.article-smoke {
+  letter-spacing: 0px;
+  padding: 43px;
+}
+
+.phrase {
+  letter-spacing: 4px;
+}
+
+.article-phrase {
+  letter-spacing: 0px;
+  padding: 36px;
+}
+
+.nickname {
+  letter-spacing: 10px;
+}
+
+.article-nickname {
+  letter-spacing: 0px;
+  padding: 25px;
+}
+
+.favorite {
+  margin-right: 30px;
+}
+
+article {
+  display: flex;
+}
+
+/**-----------------**/
+/**投稿に関する設定終了**/
+/**-----------------**/
+h1 {
+  text-align: center;
+  padding: 1em 0;
+}
+
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
+  text-align: center;
+}
+
+.button-panel .button {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 20%;
+}
+
+.button:hover {
+  background: #ee3e52;
+}
+
+.review {
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.review-comment {
+  background: #fafafa;
+  width: 36%;
+  text-align: left;
+  padding: 10px;
+  margin-left: 33%;
+  margin-bottom: 1%;
+}
