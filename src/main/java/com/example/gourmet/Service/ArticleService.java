@@ -42,4 +42,5 @@ public class ArticleService {
     public Article insert(Article article) {
         return articleRepository.insert(article);
     }
+
 }

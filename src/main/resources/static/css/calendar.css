@@ -1,0 +1,132 @@
+
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+/* fontawesome */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* Simple Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* body */
+body {
+  background: #fceede;
+  color: #5e5e5e;
+  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+}
+.header {
+  background: #ffcfcf;
+  margin: 3em auto;
+  padding: 0 1em;
+  max-width: 1050px;
+}
+.header-name {
+  float: right;
+  padding-right: 440px;
+  margin-top: 30px;
+}
+.header-logo {
+  padding: 5px; 
+  padding-top: 10px;
+}
+
+
+ 
+.content { 
+  margin: 3em auto;
+  width:500px;
+  height:500px;
+  text-align:center;
+  margin-top: 0; 
+}
+
+/*********************/
+/**カレンダーの設定開始***/
+/*********************/
+.wrapper{
+  max-width: 600px;
+  margin: 0 auto;
+  color: #666;
+}
+#header {
+  text-align: center;
+  font-size: 24px;
+  width: 100%;
+  margin: 1rem 0 0;
+}
+
+/*カレンダー*/
+#calendar {
+  text-align: center;
+  width: 100%;
+}
+table {
+  outline: 2px solid #ddd;
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  color: #000;
+}
+th, td {
+  outline: 1px solid #ddd;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+/*日曜日*/
+td:first-child {
+  background-color: rgb(244, 106, 106);
+}
+/*土曜日*/
+td:last-child {
+  background-color: rgb(103, 103, 255);
+}
+/*前後月の日付*/
+td.disabled {
+  color: #ccc;
+}
+/*本日*/
+td.today {
+  background-color: #D65E72;
+  color: #fff;
+}
+
+/*ボタン*/
+#next-prev-button {
+  position: relative;
+}
+#next-prev-button button{
+  cursor: pointer;
+  background: #B78D4A;
+  color: #fff;
+  border: 1px solid #B78D4A;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
+}
+#next-prev-button button:hover{
+  background-color: #D4BB92;
+  border-color: #D4BB92;
+}
+#prev {
+  float: left;
+}
+#next {
+  float: right;
+}
+
+.button-num{
+width: 50%;
+}
+/*********************/
+/**カレンダーの設定終了***/
+/*********************/
+
+#date {
+  margin-top: 10px;
+}

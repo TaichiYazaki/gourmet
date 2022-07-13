@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{css/calendar.css}">
+    <title>予約ページ</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header">
+            <a th:href="@{/main-page}"><img class="header-logo" src="logo.png" width="80px"></a>
+            <h1 class="header-name">予約ページ</h1>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="wrapper">
+            <!--yyyy年mm月を表示-->
+            <h1 id="header"></h1>
+            <!--ボタンクリックで移動-->
+            <div id="next-prev-button">
+                <button id="prev" onclick="prev()">
+                    <</button>
+                        <button id="next" onclick="next()">></button>
+            </div>
+            <!--カレンダー-->
+            <div id="calendar"> </div>
+        </div>
+
+        <form th:action="@{/execute-reserve}" method="post" th:object="${reserveForm}">
+            <div id="date">
+                選択した日付：<span></span>
+            </div>
+            予約時間：<select id="reservation-time" th:field="*{reserveTime}">
+                <option value="9">9:00~</option>
+                <option value="10">10:00~</option>
+                <option value="11">11:00~</option>
+                <option value="12">12:00~</option>
+                <option value="13">13:00~</option>
+            </select>
+            <br>
+            人数：<select id="reservation-people" th:field="*{reservePeople}">
+                <option value="1">1人</option>
+                <option value="2">2人</option>
+                <option value="3">3人</option>
+                <option value="4">4人</option>
+                <option value="5">5人</option>
+            </select>
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/calendar.js}"></script>
+</body>
+
+</html>

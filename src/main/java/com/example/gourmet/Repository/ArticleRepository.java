@@ -59,4 +59,5 @@ public class ArticleRepository {
         template.update(sql, param);
         return article;
     }
+
 }

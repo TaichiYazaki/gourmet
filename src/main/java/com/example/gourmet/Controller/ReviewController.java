@@ -7,8 +7,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.gourmet.Domain.Article;
@@ -20,7 +20,7 @@ import com.example.gourmet.Service.ReviewService;
 
 @Controller
 public class ReviewController {
-    
+
     @Autowired
     private ArticleService articleService;
 
@@ -32,27 +32,49 @@ public class ReviewController {
         return new ReviewForm();
     }
 
-
-
     /**
      * レビュー画面の表示
+     * 
      * @param id
      * @param model
      * @return
      */
     @RequestMapping("/review")
     public String review(Integer articleId, Model model) {
-       Article article = articleService.oneOfList(articleId);
-       model.addAttribute("article", article);
+        Article article = articleService.oneOfList(articleId);
+        List<Review> reviewOfAll = reviewService.list(articleId);
+        model.addAttribute("reviewOfAll", reviewOfAll);
+        model.addAttribute("article", article);
         return "review";
     }
-   
+
+    /**
+     * レビューを投稿します。
+     * 
+     * @param articleId
+     * @param reviewForm
+     * @param user
+     * @param model
+     * @return
+     */
     @RequestMapping("/execute-review")
-    public String executeReview(Integer articleId,ReviewForm reviewForm, @AuthenticationPrincipal LoginUser user, Model model){
-       reviewService.insert(reviewForm.getComment(), user.getRegister().getId(), articleId);
-       List<Review> reviewOfAll = reviewService.list(articleId);
-       System.out.println(reviewOfAll);
-       model.addAttribute("reviewOfAll", reviewOfAll);   
-       return "forward:/review";
+    public String executeReview(Integer articleId, ReviewForm reviewForm, @AuthenticationPrincipal LoginUser user,
+            Model model) {
+        reviewService.insert(reviewForm.getComment(), user.getRegister().getId(), articleId);
+        List<Review> reviewOfAll = reviewService.list(articleId);
+        model.addAttribute("reviewOfAll", reviewOfAll);
+        return "forward:/review";
+    }
+
+    /**
+     * いいねの数を数えます
+     * @param count
+     * @return
+     */
+    @RequestMapping("/count-good")
+    @ResponseBody
+    public int countGood( @RequestParam Integer count) {
+        int json = count+1;
+        return json;
     }
 }

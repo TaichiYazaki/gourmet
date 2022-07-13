@@ -66,8 +66,19 @@
     <div class="review-comment" th:each="review: ${reviewOfAll}">
         投稿者：<span th:text="${review.register.nickname}">たいち</span><br>
         レビュー：<span th:text="${review.comment}">good</span>
+        <br>
+       <!-- <a th:href="@{/count-good}"class="count" >
+            <img class="good-button" src="good-button.png" width="20px">
+        </a>-->
+     <!--  <form th:action="@{/count-good}" class="count" method="post"></form> -->
+     <button type="button" class="good-button"  >
+     <input type="image" src="good-button.png" value="1" name="count" width="20px">
+    </button>
+            いいね数:<span class="a">0</span>
         <hr>
     </div>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/review.js}"></script>
 </body>
 
 </html>

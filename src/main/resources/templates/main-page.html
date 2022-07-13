@@ -45,6 +45,24 @@
 
     <div class="content">
       <h1>投稿一覧</h1>
+      <form th:action="@{/research-article}" th:object="${articleForm}">
+        <div class="search-panel">
+          <input type="text" th:field="*{store}">
+          <input type="submit" class="button" value="店名検索">
+        </div>
+      </form>
+      <form th:action="@{/sort-article}">
+        <div class="search-panel">
+          <select>
+            <option value="0">---------選択---------</option>
+            <option value="1">価格の安い順</option>
+            <option value="2">価格の高い順</option>
+            <option value="3">お気に入りの多い順</option>
+            <option value="4">お気に入りの少ない順</option>
+            <input type="submit" class="button" value="並べ替え">
+          </select>
+        </div>
+      </form>
       <div class="content-all" th:each="article : ${articleOfAll}">
         <img class="image" src="food.png" th:src="@{/image/}+${article.imgFile}" width="200px">
         <div class="content-explain">
@@ -75,20 +93,26 @@
           <span class="nickname">投稿者：
             <span class="article-nickname" th:text="${article.registerNickname}">投稿者</span>
           </span>
-          <br> 
-            <form th:action="@{/execute-favorite}"  class="favorite-button" method="post" >
-              <div class="button-panel">
-                <input type="hidden" class="id" th:value="${article.id}" name="id" >
-                <input type="submit" class="button" value="お気に入り" th:name="${article.id}" >
-              </div>
-            </form>
-            <form th:action="@{/review}" method="post">
-              <div class="review-panel">
-              <input type="hidden" class="id" th:value="${article.id}" name="articleId" >
+          <br>
+          <form th:action="@{/execute-favorite}" class="favorite-button" method="post">
+            <div class="button-panel">
+              <input type="hidden" class="id" th:value="${article.id}" name="id">
+              <input type="submit" class="button" value="お気に入り" th:name="${article.id}">
+            </div>
+          </form>
+          <form th:action="@{/review}" method="post" class="reserve-form">
+            <div class="review-panel">
+              <input type="hidden" class="id" th:value="${article.id}" name="articleId">
               <input type="submit" class="button" value="レビュー">
             </div>
-            </form>
-        </div> 
+          </form>
+          <form th:action="@{/reserve-page}" method="post" class="reserve-form">
+            <div class="reserve-panel">
+              <input type="hidden" class="id" th:value="${article.id}" name="articleId">
+              <input type="submit" class="button" value="予約">
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <div class="right-side">

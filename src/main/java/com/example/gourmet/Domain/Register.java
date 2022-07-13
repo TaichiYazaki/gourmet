@@ -1,8 +1,5 @@
 package com.example.gourmet.Domain;
 
-
-
-
 import lombok.Data;
 
 @Data

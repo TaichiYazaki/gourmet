@@ -132,9 +132,14 @@ h1 {
  text-align: center;
 }
 .review-panel {
-  margin: 2em 0 0;
+ margin-top: 10px;
   width: 100%;
 }
+.reserve-panel {
+  margin-top: 10px;
+  width: 100%;
+}
+
 
 .button-panel .button {
   background: #f16272;
@@ -164,7 +169,20 @@ h1 {
   transition: background 0.3s ease-in-out;
   width: 10%;
 }
-
+.reserve-panel .button {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 10%;
+}
 .button:hover {
   background: #ee3e52;
 }
@@ -230,6 +248,34 @@ li{
 }
 /**------------------------------**/
 /**エリアに関するボタンパネルの設定終了**/
+/**------------------------------**/
+
+/**------------------------------**/
+/**----検索ボタンパネルの設定開始-----**/
+/**------------------------------**/
+.search-panel {
+  padding-left: 10%;
+ }
+
+.search-panel .button {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 30%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40%;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 10%;
+}
+.button:hover {
+  background: #ee3e52;
+}
+/**------------------------------**/
+/**----検索ボタンパネルの設定開始-----**/
 /**------------------------------**/
 
 
